@@ -1,0 +1,36 @@
+{
+    "pages": [
+      {
+        "background": "./fundo-p1.png",
+        "content": [
+          {
+            "type": "image",
+            "source": "./letter1.png",
+            "marginTop": 100,
+            "marginBot": 0,
+            "size": 70
+          },
+          {
+            "type": "text",
+            "marginTop": 100,
+            "marginBot": 0,
+            "width": 90,
+            "color": "#d67084",
+            "font": "Itim",
+            "content":"Você está prestes a ler uma cartinha muito especial"
+          },
+          {
+            "type": "button",
+            "source": "./btn1.png",
+            "width": 60,
+            "height": 10,
+            "color": "#fff",
+            "font": "Itim",
+            "marginTop": 0,
+            "marginBot": 100,
+            "content":"Abrir Cartinha"
+          }
+        ]
+      }
+    ]
+  }

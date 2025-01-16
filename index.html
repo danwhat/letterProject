@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Minha Cartinha</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      font-family: sans-serif;
+    }
+
+    section {
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      background: url('./fundo-p1.png') center center no-repeat;
+      background-size: contain;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    const data = {
+      "pages": [
+        {
+          "background": "./fundo-p1.png",
+          "content": [
+            {
+              "type": "image",
+              "source": "./letter1.png",
+              "marginTop": 100,
+              "marginBot": 0,
+              "size": 60
+            },
+            {
+              "type": "text",
+              "marginTop": 50,
+              "marginBot": 50,
+              "width": 90,
+              "color": "#d67084",
+              "font": "Itim",
+              "content": "Você está prestes a ler uma cartinha muito especial"
+            },
+            {
+              "type": "button",
+              "source": "./btn1.png",
+              "width": 60,
+              "height": 10,
+              "color": "white",
+              "font": "Itim",
+              "marginTop": 0,
+              "marginBot": 100,
+              "content": "Abrir Cartinha"
+            }
+          ]
+        },
+        {
+          "background": "./fundo-p2.jpg",
+          "content": [
+            {
+              "type": "text",
+              "marginTop": 50,
+              "marginBot": 20,
+              "width": 80,
+              "color": "#383838",
+              "font": "Itim",
+              "content": "Esta é a segunda página da sua cartinha."
+            },
+            {
+              "type": "button",
+              "source": "./btn2.png",
+              "width": 50,
+              "height": 10,
+              "color": "#fff",
+              "font": "Itim",
+              "marginTop": 0,
+              "marginBot": 50,
+              "content": "Ir para o fim"
+            }
+          ]
+        }
+      ]
+    };
+
+    function createElementsFromData(jsonData) {
+      jsonData.pages.forEach((page, index) => {
+        const section = document.createElement('section');
+        section.id = `page-${index + 1}`;
+        section.style.background = `url('${page.background}') center center no-repeat`;
+        section.style.backgroundSize = 'cover';
+        section.style.width = '100%';
+        section.style.maxHeight = '100svh'; 
+        section.style.display = 'flex';
+        section.style.flexDirection = 'column';
+        section.style.alignItems = 'center';
+        section.style.justifyContent = 'center';
+
+        page.content.forEach(item => {
+          let element;
+
+          switch(item.type) {
+            case 'image':
+              element = document.createElement('img');
+              element.src = item.source;
+              element.style.width = `${item.size}%`; 
+              element.style.marginTop = `${item.marginTop}px`;
+              element.style.marginBottom = `${item.marginBot}px`;
+              break;
+
+            case 'text':
+              element = document.createElement('h1');
+              element.textContent = item.content;
+              element.style.width = `${item.width}%`;
+              element.style.color = item.color;
+              element.style.textAlign = 'center';
+              element.style.fontFamily = `"${item.font}", serif`;
+              element.style.fontWeight = 400;
+              if (typeof item.marginTop !== 'undefined') {
+                element.style.marginTop = `${item.marginTop}px`;
+              }
+              if (typeof item.marginBot !== 'undefined') {
+                element.style.marginBottom = `${item.marginBot}px`;
+              }
+              break;
+
+            case 'button':
+              element = document.createElement('button');
+              element.textContent = item.content;
+              element.style.background = `url('${item.source}') center center no-repeat`;
+              element.style.backgroundSize = 'contain';
+              element.style.width = `${item.width}%`;
+              element.style.height = `${item.height}%`;
+              element.style.border = 'none';
+              element.style.cursor = 'pointer';
+              element.style.color = item.color;
+              element.style.fontSize = '22px';
+              element.style.fontFamily = `"${item.font}", serif`;
+              element.style.fontWeight = 400;
+              element.style.textAlign = 'center';
+              element.style.marginTop = `${item.marginTop}px`;
+              element.style.marginBottom = `${item.marginBot}px`;
+
+              if (index < jsonData.pages.length - 1) {
+                element.addEventListener('click', () => {
+                  window.location.hash = `page-${index + 2}`;
+                });
+              } else {
+                element.addEventListener('click', () => {
+                  alert('Fim da cartinha!');
+                });
+              }
+              break;
+          }
+
+          section.appendChild(element);
+        });
+
+        document.body.appendChild(section);
+      });
+    }
+    createElementsFromData(data);
+
+    // window.location.hash = 'page-1';
+  </script>
+</body>
+</html>
