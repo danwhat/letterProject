@@ -31,8 +31,8 @@
   <script>
     const data = {
       "pages": [
-        {
-          "background": "./fundo-p1.png",
+      {
+          "background": "./images/bg-start.png",
           "content": [
             {
               "type": "image",
@@ -53,8 +53,8 @@
             {
               "type": "button",
               "source": "./btn1.png",
-              "width": 60,
-              "height": 10,
+              "width": 250,
+              "height": 80,
               "color": "white",
               "font": "Itim",
               "marginTop": 0,
@@ -64,30 +64,102 @@
           ]
         },
         {
-          "background": "./fundo-p2.jpg",
+          "background": "./images/bg-begin.png",
           "content": [
+          {
+              "type": "text",
+              "marginTop": 100,
+              "marginBot": 0,
+              "width": 90,
+              "color": "#d67084",
+              "font": "Itim",
+              "content": "Talvez você não saiba, mas..."
+            },
             {
               "type": "text",
               "marginTop": 50,
-              "marginBot": 20,
-              "width": 80,
-              "color": "#383838",
+              "marginBot": 50,
+              "width": 90,
+              "color": "#d67084",
               "font": "Itim",
-              "content": "Esta é a segunda página da sua cartinha."
+              "content": "Desde o dia que te vi tropecar na frente da escola não consegui tirar você da minha cabeça"
             },
             {
               "type": "button",
-              "source": "./btn2.png",
-              "width": 50,
-              "height": 10,
-              "color": "#fff",
+              "source": "./btn1.png",
+              "width": 250,
+              "height": 80,
+              "color": "white",
               "font": "Itim",
               "marginTop": 0,
-              "marginBot": 50,
-              "content": "Ir para o fim"
+              "marginBot": 0,
+              "content": "Próxima Pagina"
             }
           ]
-        }
+        },
+        {
+          "background": "./images/bg-mid.png",
+          "content": [
+            {
+              "type": "text",
+              "marginTop": 150,
+              "marginBot": 50,
+              "width": 90,
+              "color": "#d67084",
+              "font": "Itim",
+              "content": "E sou muito grato por cada experiencia que passamos juntos."
+            },
+            {
+              "type": "image",
+              "source": "./hearts.png",
+              "marginTop": 0,
+              "marginBot": 0,
+              "size": 60
+            },
+            {
+              "type": "text",
+              "marginTop": 50,
+              "marginBot": 50,
+              "width": 90,
+              "color": "#d67084",
+              "font": "Itim",
+              "content": "Desde aquelas que foram só alegia quanto aquelas que fizeram a gente quebrar a cabeça; Mas que no final só nos deixou mais forte."
+            },
+            {
+              "type": "button",
+              "source": "./btn1.png",
+              "width": 250,
+              "height": 80,
+              "color": "white",
+              "font": "Itim",
+              "marginTop": 0,
+              "marginBot": 100,
+              "content": "Próxima Pagina"
+            }
+          ]
+        },
+        {
+          "background": "./images/bg-end.png",
+          "content": [
+            {
+              "type": "image",
+              "source": "./girl.webp",
+              "marginTop": 100,
+              "marginBot": 0,
+              "size": 60
+            },
+            {
+              "type": "text",
+              "marginTop": 50,
+              "marginBot": 150,
+              "width": 90,
+              "color": "#d67084",
+              "font": "Itim",
+              "content": "E logo mais teremos o maior desafio de todos(até agora foi só o aquecimento), mas sei que tiraremos de letra."
+            }
+          ]
+        },
+        
       ]
     };
 
@@ -137,8 +209,8 @@
               element.textContent = item.content;
               element.style.background = `url('${item.source}') center center no-repeat`;
               element.style.backgroundSize = 'contain';
-              element.style.width = `${item.width}%`;
-              element.style.height = `${item.height}%`;
+              element.style.width = `${item.width}px`;
+              element.style.height = `${item.height}px`;
               element.style.border = 'none';
               element.style.cursor = 'pointer';
               element.style.color = item.color;
@@ -169,7 +241,7 @@
     }
     createElementsFromData(data);
 
-    // window.location.hash = 'page-1';
+    window.location.hash = 'page-1';
   </script>
 </body>
 </html>
